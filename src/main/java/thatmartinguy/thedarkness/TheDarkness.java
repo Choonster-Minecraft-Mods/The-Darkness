@@ -5,19 +5,18 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import thatmartinguy.thedarkness.block.ModBlocks;
+import thatmartinguy.thedarkness.command.CommandResetReliquaryCraftedState;
 import thatmartinguy.thedarkness.crafting.ModCrafting;
 import thatmartinguy.thedarkness.crafting.ModShapedRecipe;
+import thatmartinguy.thedarkness.data.ReliquaryWorldData;
 import thatmartinguy.thedarkness.event.CommonEventHandler;
 import thatmartinguy.thedarkness.item.ModItems;
 import thatmartinguy.thedarkness.network.ReliquaryMessage;
-import thatmartinguy.thedarkness.network.ReliquaryMessageHandler;
 import thatmartinguy.thedarkness.potion.ModPotionEffects;
 import thatmartinguy.thedarkness.proxy.IProxy;
 import thatmartinguy.thedarkness.reference.Reference;
@@ -61,5 +60,11 @@ public class TheDarkness
 	public static void postInit(FMLPostInitializationEvent event)
 	{
 		proxy.postInit();
+	}
+
+	@EventHandler
+	public static void serverStopped(FMLServerStoppedEvent event)
+	{
+		ReliquaryWorldData.clearInstance();
 	}
 }

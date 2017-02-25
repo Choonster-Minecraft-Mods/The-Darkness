@@ -29,7 +29,7 @@ public class ModShapedRecipe extends ShapedOreRecipe
 	@Override
 	public boolean matches(InventoryCrafting inv, World worldIn)
 	{
-		ReliquaryWorldData worldData = ReliquaryWorldData.get(worldIn, true);
+		final ReliquaryWorldData worldData = ReliquaryWorldData.get(worldIn);
 		return !worldData.isReliquaryCrafted() && super.matches(inv, worldIn);
 	}
 }

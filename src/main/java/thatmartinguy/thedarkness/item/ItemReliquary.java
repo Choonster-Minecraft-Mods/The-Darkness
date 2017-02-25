@@ -85,7 +85,8 @@ public class ItemReliquary extends ItemFood
 	public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
 	{
 		System.out.println("item created");
-		ReliquaryWorldData worldData = ReliquaryWorldData.get(worldIn, true);
+
+		final ReliquaryWorldData worldData = ReliquaryWorldData.get(worldIn);
 		worldData.setReliquaryCrafted(true);
 	}
 }
