@@ -25,12 +25,12 @@ public class ReliquaryWorldData extends WorldSavedData
 	{
 		super(IDENTIFIER);
 	}
-	
+
 	public ReliquaryWorldData(String name)
 	{
 		super(name);
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound compound)
 	{
@@ -54,7 +54,7 @@ public class ReliquaryWorldData extends WorldSavedData
 		}
 		this.markDirty();
 	}
-	
+
 	public boolean isReliquaryCrafted()
 	{
 		return isReliquaryCrafted;

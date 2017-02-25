@@ -1,12 +1,6 @@
 package thatmartinguy.thedarkness.item;
 
-import java.awt.TextComponent;
-
 import com.mojang.realmsclient.gui.ChatFormatting;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
@@ -14,15 +8,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import thatmartinguy.thedarkness.TheDarkness;
-import thatmartinguy.thedarkness.client.sound.ModSoundEvent;
 import thatmartinguy.thedarkness.data.ReliquaryWorldData;
 import thatmartinguy.thedarkness.potion.ModPotionEffects;
 import thatmartinguy.thedarkness.util.Reference;
@@ -46,22 +36,22 @@ public class ItemReliquary extends ItemFood
 	{
 		super(amount, isWolfFood);
 	}
-	
+
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack)
 	{
 		return EnumAction.DRINK;
 	}
-	
+
 	@Override
 	public void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player)
 	{
-		if(worldIn.isRemote)
+		if (worldIn.isRemote)
 		{
 			player.addChatMessage(new TextComponentString(ChatFormatting.DARK_PURPLE + "" + ChatFormatting.ITALIC + "I consume you..."));
 			worldIn.playSound(player.posX, player.posY, player.posZ, SoundEvents.BLOCK_PORTAL_TRIGGER, SoundCategory.MASTER, 1, 1, false);
 		}
-		if(!worldIn.isRemote)
+		if (!worldIn.isRemote)
 		{
 			int timeUntilDay = 18000 - (int) worldIn.getWorldTime();
 			//Set time to noon

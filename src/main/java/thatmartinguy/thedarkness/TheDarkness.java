@@ -32,26 +32,26 @@ import thatmartinguy.thedarkness.util.Reference;
 public class TheDarkness
 {
 	public static CreativeTabs tabDarkness = new TabDarkness("tabDarkness");
-	
+
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_LOCATION, serverSide = Reference.SERVER_PROXY_LOCATION)
 	public static IProxy proxy;
-	
+
 	public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MOD_ID);
-	
+
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event)
 	{
 		ModItems.init();
 		ModPotionEffects.init();
 		ModBlocks.init();
-		
+
 		proxy.preInit();
-		
+
 		int id = -1;
 		NETWORK.registerMessage(ReliquaryMessage.Handler.class, ReliquaryMessage.class, id++, Side.CLIENT);
 		NETWORK.registerMessage(PlayerHostMessage.Handler.class, PlayerHostMessage.class, id++, Side.CLIENT);
 	}
-	
+
 	@EventHandler
 	public static void init(FMLInitializationEvent event)
 	{
@@ -63,7 +63,7 @@ public class TheDarkness
 		
 		proxy.init();
 	}
-	
+
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event)
 	{

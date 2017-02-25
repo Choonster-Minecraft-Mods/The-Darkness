@@ -1,7 +1,6 @@
 package thatmartinguy.thedarkness.event;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -42,7 +41,7 @@ public class CommonEventHandler
 			{
 				if(player.isPotionActive(ModPotionEffects.effectReliquary))
 				{
-					if(!player.worldObj.isRemote)
+					if (!player.worldObj.isRemote)
 					{
 						player.worldObj.spawnEntityInWorld(new EntityLightningBolt(player.worldObj, player.posX, player.posY, player.posZ, false));
 						player.addChatMessage(new TextComponentString(ChatFormatting.DARK_PURPLE + "I consume you..."));

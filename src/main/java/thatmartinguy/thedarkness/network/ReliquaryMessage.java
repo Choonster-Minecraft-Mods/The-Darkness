@@ -10,12 +10,16 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import thatmartinguy.thedarkness.data.ReliquaryWorldData;
 
+import javax.annotation.Nullable;
+
 public class ReliquaryMessage implements IMessage
 {
 	private boolean reliquaryCrafted;
-	
-	public ReliquaryMessage() {}
-	
+
+	public ReliquaryMessage()
+	{
+	}
+
 	public ReliquaryMessage(boolean reliquaryCrafted)
 	{
 		this.reliquaryCrafted = reliquaryCrafted;
