@@ -7,9 +7,9 @@ import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
@@ -40,9 +40,13 @@ public class CommonEventHandler
 		if(source.getDamageType() == "player")
 		{
 			EntityPlayer player = (EntityPlayer) source.getEntity();
-			if(player.getActivePotionEffect(Potion.getPotionById(9)) == null && player.getActivePotionEffect(Potion.getPotionById(15)) == null && player.getActivePotionEffect(Potion.getPotionById(2)) == null && player.getActivePotionEffect(Potion.getPotionById(4)) == null && player.getActivePotionEffect(Potion.getPotionById(18)) == null)
+			if (player == null) return;
+
+			if (!player.isPotionActive(MobEffects.NAUSEA) && !player.isPotionActive(MobEffects.BLINDNESS) &&
+					!player.isPotionActive(MobEffects.SLOWNESS) && !player.isPotionActive(MobEffects.MINING_FATIGUE)
+					&& !player.isPotionActive(MobEffects.WEAKNESS))
 			{
-				if(player.getActivePotionEffect(Potion.getPotionById(Potion.getIdFromPotion(ModPotionEffects.effectReliquary))) != null)
+				if (player.isPotionActive(ModPotionEffects.effectReliquary))
 				{
 					if(!player.worldObj.isRemote)
 					{

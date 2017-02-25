@@ -8,11 +8,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
@@ -67,17 +67,17 @@ public class ItemReliquary extends ItemFood
 			int timeUntilDay = 18000 - (int)worldIn.getWorldTime();
 			worldIn.setWorldTime(6000);
 			//Add blindness
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(15), 1200));
+			player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 1200));
 			//Add slowness
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(2), timeUntilDay));
+			player.addPotionEffect(new PotionEffect(MobEffects.SLOWNESS, timeUntilDay));
 			//Add mining fatigue
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(4), timeUntilDay));
+			player.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, timeUntilDay));
 			//Add nausea
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(9), 200));
+			player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200));
 			//Add weakness
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(18), timeUntilDay));
+			player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, timeUntilDay));
 			//Add hidden lightning countdown effect
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(Potion.getIdFromPotion(ModPotionEffects.effectReliquary)), timeUntilDay + 6000));
+			player.addPotionEffect(new PotionEffect(ModPotionEffects.effectReliquary, timeUntilDay + 6000));
 		}
 	}
 
