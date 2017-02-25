@@ -37,7 +37,7 @@ public class CommonEventHandler
 		//TODO: Check what was killed
 		EntityLivingBase victim = event.getEntityLiving();
 		DamageSource source = event.getSource();
-		if(source.getDamageType() == "player")
+		if (source.getDamageType().equals("player"))
 		{
 			EntityPlayer player = (EntityPlayer) source.getEntity();
 			if (player == null) return;
