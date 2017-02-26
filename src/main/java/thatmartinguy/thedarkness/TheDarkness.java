@@ -18,6 +18,7 @@ import thatmartinguy.thedarkness.command.CommandResetReliquaryCraftedState;
 import thatmartinguy.thedarkness.crafting.ModCrafting;
 import thatmartinguy.thedarkness.crafting.ModShapedRecipe;
 import thatmartinguy.thedarkness.data.ReliquaryWorldData;
+import thatmartinguy.thedarkness.data.capability.PlayerHostProvider;
 import thatmartinguy.thedarkness.event.CapabilityEventHandler;
 import thatmartinguy.thedarkness.event.CommonEventHandler;
 import thatmartinguy.thedarkness.item.ModItems;
@@ -44,6 +45,7 @@ public class TheDarkness
 		ModItems.init();
 		ModPotionEffects.init();
 		ModBlocks.init();
+		PlayerHostProvider.register();
 
 		proxy.preInit();
 
