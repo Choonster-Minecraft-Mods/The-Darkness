@@ -1,5 +1,6 @@
 package thatmartinguy.thedarkness.event;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -13,9 +14,9 @@ public class CapabilityEventHandler
 	
 	//Attach player capabilities
 	@SubscribeEvent
-	public void attachPlayerCapabilitiesEvent(AttachCapabilitiesEvent.Entity event)
+	public void attachPlayerCapabilitiesEvent(AttachCapabilitiesEvent<Entity> event)
 	{
-		if(event.getEntity() instanceof EntityPlayer)
+		if(event.getObject() instanceof EntityPlayer)
 		{
 			event.addCapability(IS_HOST, new PlayerHostProvider());
 			System.out.println("Attached PlayerHostCapability");
