@@ -22,10 +22,11 @@ public class PlayerHostProvider implements ICapabilitySerializable<NBTBase>
 {
 	@CapabilityInject(IPlayerHostCapability.class)
 	public static final Capability<IPlayerHostCapability> PLAYER_HOST_CAPABILITY = null;
-	
-	private static final IPlayerHostCapability instance = PLAYER_HOST_CAPABILITY.getDefaultInstance();
+
 	private static final ResourceLocation IDENTIFIER = new ResourceLocation(Reference.MOD_ID, "isHost");
-	
+
+	private final IPlayerHostCapability instance = PLAYER_HOST_CAPABILITY.getDefaultInstance();
+
 	public static void register()
 	{
 		CapabilityManager.INSTANCE.register(IPlayerHostCapability.class, new Capability.IStorage<IPlayerHostCapability>()
